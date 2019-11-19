@@ -1,5 +1,6 @@
 @import './bass.scss';
 @import './flex.scss';
+@import './font.scss';
 
 html, body {
     width: 100%;
@@ -18,4 +19,11 @@ body{
     color: $mainColor;
     border-radius: 0.2rem;
     background: $bgColor;
+}
+
+.ant-card{
+    background: $mainColor;
+    .ant-card-head{
+        border-color: $bgColor;
+    }
 }
