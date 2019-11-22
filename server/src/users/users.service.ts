@@ -2,7 +2,7 @@ import { Model } from 'mongoose'
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { User } from '../interfaces/user.interface'
-import { CreateUserDto } from 'src/dtos/create-user.dto';
+import { CreateUserDto } from '../dtos/create-user.dto';
 
 export type User = any
 
@@ -14,7 +14,7 @@ export class UsersService {
     ) {}
 
     async findOne(params: any): Promise<User | undefined> {
-        return await this.userModel.findOne().where(params).exec();
+        return await this.userModel.findOne().where(params);
     }
     
     async findById(id: String): Promise<User | undefined> {
@@ -26,7 +26,7 @@ export class UsersService {
     }
 
     async create(createUserDto: CreateUserDto): Promise<User> {
-      const createUser = new this.userModel(createUserDto);
-      return await createUser.save();
+      const createUser = await this.userModel.create(createUserDto);
+      return createUser;
     }
 }

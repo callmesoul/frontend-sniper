@@ -1,11 +1,6 @@
 import * as mongoose from 'mongoose'
 
 export const AppSchema = new mongoose.Schema({
-    appScrect: {
-        type: String,
-        required: true,
-        comment: '唯一识别码'
-    },
     domain: {
         type: String,
         required: true,

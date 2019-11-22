@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { Register } from '@/graphql/auth';
+import { Register, Login } from '@/graphql/auth';
 
 export default {
   name: 'login',
@@ -74,13 +74,27 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.$apollo.mutate({
-            mutation: Register,
-            variables: values,
-            update:(cache, { data: { register}}) => {
-              console.log(register)
-            }
-          })
+          // 登陆
+          if(this.type === 1){
+            this.$apollo.mutate({
+              mutation: Login,
+              variables: values,
+              update:(cache, { data: { login}}) => {
+                this.$store.commit('SET_TOKEN',{ token: login.token})
+                this.$router.push('/')
+              }
+            })
+          } else {
+            // 注册
+            this.$apollo.mutate({
+              mutation: Register,
+              variables: values,
+              update:(cache, { data: { register}}) => {
+                this.$store.commit('SET_TOKEN',{ token: register.token})
+                this.$router.push('/')
+              }
+            })
+          }
         }
       });
     },

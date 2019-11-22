@@ -1,0 +1,26 @@
+.main-left{
+    height: 100%;
+    .logo{
+        color: #fff;
+        padding: 0.15rem;
+        display: block;
+        background: #000000;
+        i{
+            font-size: 0.4rem;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.1rem;
+        }
+        span{
+            font-size: 0.17rem;
+            display: inline-block;
+            vertical-align: middle;
+        }
+    }
+    nav{
+        .ant-menu{
+            height: 100%;
+            background: #000000;
+        }
+    }
+}

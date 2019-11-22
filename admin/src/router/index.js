@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import DefaultLayout from '../layouts/default-layout.vue'
 
 Vue.use(VueRouter)
 
@@ -8,7 +8,12 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: Home
+    component: DefaultLayout,
+    children: [
+      { path: '/dashbord', name: 'dashbord', meta: { title: '主面板', icon: 'fund' }, component: () => import(/* webpackChunkName: "about" */ '../views/dashbord/dashbord.vue')},
+      { path: '/app', name: 'app', meta: { title: '应用管理', icon: 'appstore' }, component: () => import(/* webpackChunkName: "about" */ '../views/app/index.vue')},
+      { path: '/error', name: 'error', meta: { title: '错误管理', icon: 'file-excel' }, component: () => import(/* webpackChunkName: "about" */ '../views/error/index.vue')},
+    ]
   },
   {
     path: '/login',

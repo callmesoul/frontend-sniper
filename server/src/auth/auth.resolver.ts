@@ -1,6 +1,7 @@
 import { Resolver, Mutation, Args, Query } from '@nestjs/graphql';
 import { CreateUserDto } from '../dtos/create-user.dto';
-import { UserInput } from '../inputs/cat.input';
+import { UserInput } from '../inputs/user.input';
+import { LoginInput } from '../inputs/login.input';
 import { AuthService } from './auth.service';
 import { tokenDto } from '../dtos/token.dto';
 
@@ -21,5 +22,13 @@ export class AuthResolver {
         @Args('input') input: UserInput,
     ) {
         return await this.authService.register(input);
+    }
+
+    // 登陆
+    @Mutation(() => tokenDto)
+    async login(
+        @Args('input') input: LoginInput,
+    ) {
+        return await this.authService.login(input);
     }
 }

@@ -5,6 +5,7 @@ import store from './store'
 import '@/until/ant-desigan-vue-import'
 import '@/assets/styles/global.scss'
 import { apolloProvider } from '@/until/apollo-provider'
+import '@/until/permission'
 
 
 Vue.config.productionTip = false

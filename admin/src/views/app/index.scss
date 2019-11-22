@@ -1,0 +1,39 @@
+@import '~@/assets/styles/base.scss';
+
+.app-list{
+    .ant-row{
+        .gutter-row{
+            margin-bottom: 0.3rem;
+            .ant-card{
+                .ant-card-body{
+                    .isnotify {
+                        color: rgba(0, 0, 0, 0.45);
+                        margin-top: 0.1rem;
+                        span{
+                            margin-right: 0.1rem;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
+    
+
+    .add-btn{
+        display: block;
+        width: 0.5rem;
+        line-height: 0.5rem;
+        background: $mainColor;
+        text-align: center;
+        border-radius: 50%;
+        color: $bgColor;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.26rem;
+        box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.5);
+    }
+}

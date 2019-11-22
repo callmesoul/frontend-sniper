@@ -9,7 +9,8 @@ import {
     Col, 
     Modal, 
     Table, 
-    notification
+    notification,
+    Message
 } from 'ant-design-vue'
 
 Vue.use(Input)
@@ -24,3 +25,4 @@ Vue.use(Table)
 Vue.use(notification)
 
 Vue.prototype.$notification = notification;
+Vue.prototype.$message = Message;

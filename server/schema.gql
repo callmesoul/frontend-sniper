@@ -3,16 +3,54 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type AppDto {
+  id: String!
+  appScrect: String!
+  domain: String!
+  name: String!
+  userId: String!
+  isNotify: Boolean!
+  createdAt: DateTime!
+}
+
+input CreateAppInput {
+  name: String!
+  domain: String!
+  isNotify: Boolean!
+}
+
+"""
+The javascript `Date` as string. Type represents date and time as the ISO Date string.
+"""
+scalar DateTime
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
 type Mutation {
   register(input: UserInput!): tokenDto!
+  login(input: LoginInput!): tokenDto!
+  createApp(input: CreateAppInput!): AppDto!
+  updateApp(input: UpdateAppInput!): AppDto!
+  removeApp(text: String!): Boolean!
 }
 
 type Query {
   hello: String!
+  userApps: [AppDto!]!
 }
 
 type tokenDto {
   token: String!
+}
+
+input UpdateAppInput {
+  id: String!
+  name: String!
+  domain: String!
+  isNotify: Boolean!
 }
 
 input UserInput {
