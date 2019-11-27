@@ -1,26 +1,41 @@
 .main-left{
     height: 100%;
+    width: 250px;
+    background: #cccc;
+    .user{
+        margin-top: 0.3rem;
+        .avatar{
+            text-align: center;
+            .ant-avatar{
+                cursor: pointer;
+            }
+        }
+    }
     .logo{
         color: #fff;
-        padding: 0.15rem;
+        padding: 0 0.3rem;
         display: block;
         background: #000000;
-        i{
-            font-size: 0.4rem;
-            display: inline-block;
-            vertical-align: middle;
-            margin-right: 0.1rem;
-        }
-        span{
-            font-size: 0.17rem;
-            display: inline-block;
-            vertical-align: middle;
+        img{
+            width: 100%;
         }
     }
     nav{
+        margin-top: 0.3rem;
+        border-top: 1px solid #707070;
         .ant-menu{
             height: 100%;
             background: #000000;
+            
+            .ant-menu-item{
+                
+                height: 0.62rem;
+                line-height: 0.62rem;
+
+                &.ant-menu-item-selected{
+                    background-color: #303030;
+                }
+            }
         }
     }
 }

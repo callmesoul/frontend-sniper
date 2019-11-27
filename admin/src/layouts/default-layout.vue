@@ -4,19 +4,6 @@
             <Menu></Menu>
         </div>
         <div class="main-body flex1 flex flex-v">
-            <div class="main-body-header flex flex-align-center">
-                <div class="page-title flex1">主面板</div>
-                <div class="user">
-                    <a-dropdown :trigger="['click']">
-                        <a class="ant-dropdown-link" href="#"> userName <a-icon type="down" /> </a>
-                        <a-menu slot="overlay">
-                        <a-menu-item>
-                            <a href="javascript:;" @click="logout">Log Out</a>
-                        </a-menu-item>
-                        </a-menu>
-                    </a-dropdown>
-                </div>
-            </div>
             <div class="main-body-warp flex1">
                 <router-view />
             </div>
@@ -36,10 +23,7 @@ export default {
         [menu.Item.name]: menu.Item
     },
     methods:{
-        logout(){
-            this.$store.commit('LOG_OUT');
-            this.$router.replace({name: 'login'})
-        }
+        
     }
 }
 </script>

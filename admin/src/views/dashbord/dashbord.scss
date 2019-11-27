@@ -1,0 +1,50 @@
+@import '~@/assets/styles/base.scss';
+
+.dashboard{
+    .header{
+        border-bottom: 1px solid #707070;
+        .header-item{
+            text-align: center;
+            width: 20%;
+        }
+    }
+    .new-error-list{
+        margin-top: 0.3rem;
+        .new-error-item{
+            margin-bottom: 0.3 rem;
+            background: #5F5F5F;
+            padding: 0.15rem;
+            box-shadow: 0 0.22rem 0.38rem rgba(0,0,0,0.26);
+            .top{
+                .title{
+                    font-size: 0.2rem;
+                    font-weight: bold;
+                }
+                .time{
+                    font-size: 0.12rem;
+                    color: rgba(255,255,255,0.7);
+                    margin-left: 0.15rem;
+                }
+            }
+            .cont{
+                margin-top: 0.15rem;
+                .play-video{
+                    width: 1.5rem;
+                    background: #000000;
+                    margin-right: 0.3rem;;
+                    color: #ffffff;
+                }
+                .msg{
+                    font-size: 0.14rem;
+                    color: rgba(255,255,255,0.7);
+                    .msg-item {
+                        margin-bottom: 0.1rem;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

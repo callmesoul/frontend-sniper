@@ -36,4 +36,34 @@
         font-size: 0.26rem;
         box-shadow: 0 0 0.1rem rgba(255, 255, 255, 0.5);
     }
+
+    
+    .app-msg{
+        padding: 0.15rem;
+        border-bottom: 1px solid #707070;
+        .key{
+            color: #ffffff;
+            font-weight: bold;
+            margin-right: 0.1rem;
+        }
+        .value{
+            color: #aaaaaa;
+        }
+    }
+
+    .error-warp{
+        .error{
+            border-right: 1px solid #707070;
+            .error-item{
+                padding:0 0.15rem;
+                line-height: 0.6rem;
+                border-bottom: 1px solid #707070;
+                color: #fff;
+                font-weight: bold;
+                &:last-child{
+                    border-bottom: 0;
+                }
+            }
+        }
+    }
 }

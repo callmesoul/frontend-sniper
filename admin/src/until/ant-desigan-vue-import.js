@@ -10,7 +10,8 @@ import {
     Modal, 
     Table, 
     notification,
-    Message
+    Message,
+    Empty
 } from 'ant-design-vue'
 
 Vue.use(Input)
@@ -23,6 +24,8 @@ Vue.use(Col)
 Vue.use(Modal)
 Vue.use(Table)
 Vue.use(notification)
+Vue.use(Empty)
 
 Vue.prototype.$notification = notification;
 Vue.prototype.$message = Message;
+Vue.prototype.$confirm = Modal.confirm;

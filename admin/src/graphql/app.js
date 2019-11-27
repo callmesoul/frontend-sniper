@@ -21,3 +21,22 @@ export const CreateApp = gql `
         }
     }
 `
+
+export const UpdateApp = gql `
+    mutation($id: String!, $name: String!, $domain: String!, $isNotify: Boolean!){
+        updateApp(input:{id: $id, name: $name, domain: $domain, isNotify: $isNotify}){
+            id,
+            name,
+            domain,
+            isNotify
+        }
+    }
+`
+
+
+
+export const RemoveApp = gql `
+    mutation($id: String!){
+        removeApp(id: $id)
+    }
+`

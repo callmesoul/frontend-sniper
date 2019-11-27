@@ -8,6 +8,7 @@ import { GraphQLModule } from '@nestjs/graphql'
 import { AppsModule } from './apps/apps.module';
 import * as GraphQLJSON from 'graphql-type-json';
 import { ObjectIdScalar } from './scalars/object-id.scalar';
+import { ErrorsModule } from './errors/errors.module';
 
 @Module({
   imports: [
@@ -18,7 +19,8 @@ import { ObjectIdScalar } from './scalars/object-id.scalar';
     }),
     UsersModule,
     AuthModule,
-    AppsModule
+    AppsModule,
+    ErrorsModule
   ],
   controllers: [AppController],
   providers: [AppService],

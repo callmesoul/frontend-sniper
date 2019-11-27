@@ -1,14 +1,23 @@
 <template>
     <div class="main-left flex flex-v">
-        <nav class="flex1">
-            <a class="logo">
-                <i class="logo-icon iconfont icon-frontend-sniper"></i>
-                <span class="logo-text">
-                    <div>Frontend</div>
-                    <div>Sniper</div>
-                </span>
-            </a>
-            <a-menu
+        
+        <div class="user">
+            <div class="avatar">
+                <a-dropdown :trigger="['click']">
+                    <a-avatar class="ant-dropdown-link" href="#" :size="60" :style="{backgroundColor: '#000', verticalAlign: 'middle'}">
+                        CallMeSoul
+                    </a-avatar>
+                        <a-menu slot="overlay">
+                        <a-menu-item>
+                            <a href="javascript:;" @click="logout">Log Out</a>
+                        </a-menu-item>
+                        </a-menu>
+                    </a-dropdown>
+                
+            </div>
+        </div>
+        <nav class="flex1 flex flex-v">
+            <a-menu class="flex1"
                 :defaultSelectedKeys="[$route.name]"
                 :defaultOpenKeys="['sub1']"
                 mode="inline"
@@ -30,11 +39,14 @@
                 </template>
             </a-menu>
         </nav>
+        <a class="logo">
+                <img src="../../assets/logo.svg" />
+            </a>
     </div>
 </template>
 
 <script>
-import { Menu, Icon } from 'ant-design-vue'
+import { Menu, Icon, Avatar, Dropdown } from 'ant-design-vue'
 export default {
     data(){
         return {
@@ -45,7 +57,9 @@ export default {
         [Menu.name]: Menu,
         [Menu.Item.name]: Menu.Item,
         [Menu.SubMenu.name]: Menu.SubMenu,
-        [Icon.name]: Icon
+        [Icon.name]: Icon,
+        [Avatar.name]: Avatar,
+        [Dropdown.name]: Dropdown
     },
     created(){
         this.routers = this.$router.options.routes[0].children;
@@ -53,6 +67,10 @@ export default {
     methods:{
         menuClick(route){
             this.$router.push(route.name);
+        },
+        logout(){
+            this.$store.commit('LOG_OUT');
+            this.$router.replace({name: 'login'})
         }
     }
 }

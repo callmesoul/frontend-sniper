@@ -19,27 +19,27 @@ export const ErrorSchema = new mongoose.Schema({
     level: {
         type: String,
         required: false,
-        comment:'信息类型'
+        comment:'信息类型',
     },
     col: {
         type: Number,
         required: false,
-        comment:'行数'
+        min: 0,
+        default: 0
     },
     line: {
         type: Number,
-        required: true,
-        comment:'列数'
+        min: 0,
     },
     appId: {
         type: String,
         required: true,
         comment:'appid',
     },
-    user: {
+    pageUrl: {
         type: String,
-        required: true,
-        comment:'用户信息'
+        required: false,
+        comment:'页面地址',
     },
     isNotify: {
         type: Boolean,

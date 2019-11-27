@@ -4,10 +4,8 @@ import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose'
 import { CreateAppDto } from '../dtos/create-app.dto';
 import { UpdateAppInput } from '../inputs/app.input';
-import { UserInput } from '../inputs/user.input';
 import { User } from '../interfaces/user.interface';
 import { AuthenticationError } from 'apollo-server-core';
-import { ObjectIdScalar } from '../scalars/object-id.scalar';
 
 @Injectable()
 export class AppsService {
@@ -30,8 +28,6 @@ export class AppsService {
     }
 
     async update(params: UpdateAppInput, user: User): Promise<App>{
-        console.log('===')
-        console.log(user)
         let app = await this.appModel.findById(params.id);
         if(app){
             if(user.id === app.userId){
@@ -48,7 +44,7 @@ export class AppsService {
         }
     }
 
-    async remove(id: ObjectIdScalar, user: User): Promise<Boolean>{
+    async remove(id: String, user: User): Promise<Boolean>{
         let app = await this.appModel.findById(id);
         if(app){
             if(user.id === app.userId){
@@ -60,5 +56,9 @@ export class AppsService {
         }else{
             throw new Error('找不到该项目');
         }
+    }
+
+    async getUserAppsNum(userId: String,): Promise<Number>{
+        return await this.appModel.count({userId: userId});
     }
 }

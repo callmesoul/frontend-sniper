@@ -44,8 +44,20 @@ export class AppsResolver {
 
     @Mutation(() => Boolean)
     @UseGuards(GqlAuthGuard)
-    async removeApp(@Args('text') text: String){  
-        return true;
-        // return await this.appsService.remove(id,user)
+    async removeApp(
+        @CurrentUser() user: User,
+        @Args('id') id: String
+    ){  
+        console.log('id',id)
+        // return true;
+        return await this.appsService.remove(id,user)
+    }
+
+    @Mutation(() => Number)
+    @UseGuards(GqlAuthGuard)
+    async userAppsNum(
+        @CurrentUser() user: User
+    ){  
+        return await this.appsService.getUserAppsNum(user.id)
     }
 }
